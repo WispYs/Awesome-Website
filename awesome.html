@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/index.css">
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="intro">
+                <div class="video-content">
+                    <video id="video" muted="" autobuffer="" autoplay="" loop="" volume="0">
+                        <source src="source/intro.mp4">
+                    </video>
+                </div>
+            </div>
+            <div class="heaven"></div>
+            <div class="hell">
+                <div class="hell-bottom"></div>
+            </div>
+            <div class="doll">
+                <div class="phone">
+                    <img src="img/phone.png" height="250" width="525" alt="">
+                    <div class="phone-space">
+                        <div class="phone-bg">
+                            <div class="organs-overlay"></div>
+                            <div class="brain">
+                                <div class="cog1 animate">
+                                    <img src="img/cog1.gif" height="113" width="113" alt="">
+                                </div>
+                                <div class="cog2 animate">
+                                    <img src="img/cog2.gif" height="113" width="113" alt="">
+                                </div>
+                                <div class="cog3 animate">
+                                    <img src="img/cog3.gif" height="113" width="113" alt="">
+                                </div>
+                            </div>
+                            <div class="heart">
+                                <img src="img/heart.png" height="141" width="156" alt=""/>
+                            </div>
+                            <div class="clock">
+                                <div class="hours"></div>
+                                <div class="minutes"></div>
+                                <div class="seconds"></div>
+                            </div>
+                            <div class="butterfly">
+                                <div class="butterfly-body"></div>
+                                <div class="butterfly-leftwing">
+                                    <img src="img/butterfly-leftwing.png" height="100" width="100" alt="">
+                                </div>
+                                <div class="butterfly-rightwing">
+                                    <img src="img/butterfly-rightwing.png" height="100" width="100" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="link">
+                    <ul>
+                        <li class="l-mind">
+                            <img src="img/link01.gif" height="200" width="151" alt="">
+                        </li>
+                        <li class="l-heart">
+                            <img src="img/link02.gif" height="200" width="151" alt="">
+                        </li>
+                        <li class="l-soul">
+                            <img src="img/link03.gif" height="200" width="151" alt="">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </body>
+    <script src="js/jquery.1.7.2.min.js"></script>
+    <script>
+
+
+        $(function(){
+
+
+            $(".l-mind").click(function(){
+                $(".phone").animate({top: "180px"});
+                $(".phone-bg").animate({top: "-180px"})
+            })
+            $(".l-heart").click(function(){
+                $(".phone").animate({top: "420px"});
+                $(".phone-bg").animate({top: "-420px"})
+            })
+            $(".l-soul").click(function(){
+                $(".phone").animate({top: "550px"});
+                $(".phone-bg").animate({top: "-550px"})
+            })
+            setInterval(function(){
+                var date = new Date(),
+                    h = date.getHours(),
+                    m = date.getMinutes(),
+                    s = date.getSeconds(),
+                    hTimes = 360/12,
+                    mTimes = 360/60,
+                    sTimes = 360/60;
+                $(".seconds").css({transform: "rotateZ("+s*sTimes+"deg)"})
+                $(".minutes").css({transform: "rotateZ("+m*mTimes+"deg)"})
+                $(".hours").css({transform: "rotateZ("+h*hTimes+"deg)"})
+            }, 1000)
+        })
+    </script>
+</html>
